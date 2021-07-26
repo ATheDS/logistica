@@ -19,8 +19,8 @@ function Page() {
   const [Veiculo, setVeiculo] = useState([]);
   const [Filter, setFilter] = useState([]);
   const [PesquisaVeiculo, setPesquisaVeiculo] = useState([]);
-  const [set_formnewlitros,  set_FormNewLitros] = useState([]);
-  const [set_fornewmedia, set_FormNewMedia] = useState([]);
+  const [formnewlitros,  setFormNewLitros] = useState([]);
+  const [fornewmedia, setFormNewMedia] = useState([]);
 
   //popups
   const [ButtonPopupNOVO, setButtonPopupNOVO] = useState(false);
@@ -38,8 +38,8 @@ function Page() {
 
 
   //formularios
-  const [set_formlitros,  set_FormLitros] = useState([]);
-  const [set_formedia, set_FormMedia] = useState([]);
+  const [formlitros,  setFormLitros] = useState([]);
+  const [formedia, setFormMedia] = useState([]);
 
   //Select
   const [NewNewCda, SetNewCda] = React.useState("1");
@@ -171,7 +171,7 @@ function Page() {
 
   async function EnviaFormularioEditar(event){
     event.preventDefault()
-    const editarformulario = { id_CdaPadrao:ID_CDAPadrao, id_cda:ID_CDA, id_modelo:id_modelo_veiculo, media:set_formedia , litros:set_formlitros}
+    const editarformulario = { id_CdaPadrao:ID_CDAPadrao, id_cda:ID_CDA, id_modelo:id_modelo_veiculo, media:setformedia , litros:setformlitros}
     const  res = await api.post('editar',editarformulario)
     window.location.reload();
     
@@ -179,7 +179,7 @@ function Page() {
   }
   async function handleSubmitFormularioNovo (e){
 
-    const novoformulario = { id_cda:NewNewCda, id_modelo:Formveiculo, media:set_fornewmedia , litros:set_formnewlitros}
+    const novoformulario = { id_cda:NewNewCda, id_modelo:Formveiculo, media:fornewmedia , litros:formnewlitros}
     const  res = await api.post('inserir',novoformulario)
 
 
@@ -190,17 +190,17 @@ function Page() {
     setButtonPopupDeletar(false)
   }
   const handleChangeMedia = (e) => {
-    set_FormMedia(e.target.value);
+    setFormMedia(e.target.value);
   }
   const handleChangeLitros = (e) => {
-    set_FormLitros(e.target.value);
+    setFormLitros(e.target.value);
   }
   const handleChangeNewMedia = (e) => {
-    set_FormNewMedia(e.target.value);
+    setFormNewMedia(e.target.value);
 
   }
   const handleChangeNewLitros = (e) => {
-    set_FormNewLitros(e.target.value);
+    setFormNewLitros(e.target.value);
 
   }
 
