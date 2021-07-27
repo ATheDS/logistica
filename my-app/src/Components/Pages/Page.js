@@ -171,7 +171,7 @@ function Page() {
 
   async function EnviaFormularioEditar(event){
     event.preventDefault()
-    const editarformulario = { id_CdaPadrao:ID_CDAPadrao, id_cda:ID_CDA, id_modelo:id_modelo_veiculo, media:setformedia , litros:setformlitros}
+    const editarformulario = { id_CdaPadrao:ID_CDAPadrao, id_cda:ID_CDA, id_modelo:id_modelo_veiculo, media:formedia , litros:formlitros}
     const  res = await api.post('editar',editarformulario)
     window.location.reload();
     
@@ -270,7 +270,7 @@ function Page() {
       }
     </table>
     
-    <Popup trigger={ButtonPopupNOVO} setTriger={setButtonPopupNOVO} >
+    <Popup trigger={ButtonPopupNOVO} Triger={setButtonPopupNOVO} >
         <FormControl >
           <h3 className="margin-fix text-center">CDM</h3>
           <NativeSelect id="demo-customized-select-native" className="margin-fix" value={NewNewCda} onChange={handleChangeCDANOVO} input={<BootstrapInput />}>
@@ -298,7 +298,7 @@ function Page() {
           </form>
     </Popup>
 
-    <Popup trigger={buttonPopup} setTriger={setButtonPopup} >
+    <Popup trigger={buttonPopup} Triger={setButtonPopup} >
       <h1 className="text-center">{cda}</h1>
       <h1 className="text-center">{veiculo}</h1>
         <form className="form-center"  onSubmit={EnviaFormularioEditar}>
@@ -310,7 +310,7 @@ function Page() {
         </form>
     </Popup>
 
-    <Popup trigger={ButtonPopupDeletar} setTriger={setButtonPopupDeletar} >
+    <Popup trigger={ButtonPopupDeletar} Triger={setButtonPopupDeletar} >
       <h2 className="text-center">deseja realmente deletar?</h2>
       <h1 className="text-center">{cda}</h1>
       <h1 className="text-center">{veiculo}</h1>
